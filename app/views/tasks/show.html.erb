@@ -1,0 +1,18 @@
+<h1><%= @task.title %></h1>
+<div>
+    <p><%= @task.details %></p>
+    <a href=<%= "/tasks/#{@task.id}/edit" %>>Edit</a>
+</div>
+
+<ul>
+    <% @tasks.each do |task| %>
+        <li>
+            <input type="checkbox" name="task" <%= "checked" if task.completed %>>
+            <label for="task">
+                <a href=<%= "/tasks/#{task.id}" %>><%= task.title %></a>
+            </label>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to "Back to list", "/tasks" %>
